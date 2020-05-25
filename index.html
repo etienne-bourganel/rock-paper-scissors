@@ -7,8 +7,6 @@
 <body>
   <script>
 
-  /* TO DO: create a function Game() to enclose all ones and call playRound 5 times */
-
   /* Function to ask the player to make a selection and return it in lower case except first character */
 
   function playerPlay () {
@@ -25,49 +23,73 @@
     return movesArray[Math.floor(Math.random() * movesArray.length)];
   }
 
-  function playRound(playerSelection, computerSelection) {
+  let playerScore = 0;
+  let computerScore = 0;
+  let round = 0;
 
-    /* Player choses Rock */
+  function game(){
 
-    if (playerSelection == "Rock" && computerSelection == "Paper") {
-      return ("You lose! Paper beats Rock.")
-    }
-    else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-      return ("You win! Rock beats Scissors.")
-    }
-    else if (playerSelection == "Rock" && computerSelection == "Rock") {
+    function playRound(playerSelection, computerSelection) {
+
+
+
+      /* Player choses Rock */
+
+      if (playerSelection == "Rock" && computerSelection == "Paper") {
+        computerScore++;
+        round++;
+        return ("You lose! Paper beats Rock.");
+      }
+      else if (playerSelection == "Rock" && computerSelection == "Scissors") {
+        playerScore++;
+        round++;
+        return ("You win! Rock beats Scissors.");
+      }
+      else if (playerSelection == "Rock" && computerSelection == "Rock") {
+        round++;
+        return ("Draw!");
+      }
+
+      /* Player choses Paper */
+
+      else if (playerSelection == "Paper" && computerSelection == "Rock") {
+      return ("You win! Paper beats Rock.")
+      }
+      else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+      return ("You lose! Scissors beats Paper.")
+      }
+      else if (playerSelection == "Paper" && computerSelection == "Paper") {
+        return ("Draw!")
+      }
+
+      /* Player choses Scissors */
+
+      else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+      return ("You lose! Rock beats Scissors.")
+      }
+      else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+      return ("You win! Scissors beats Paper.")
+      }
+      else if (playerSelection == "Scissors" && computerSelection == "Scissors") {
       return ("Draw!")
-    }
-    /* Player choses Paper */
-
-    else if (playerSelection == "Paper" && computerSelection == "Rock") {
-    return ("You win! Paper beats Rock.")
-    }
-    else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-    return ("You lose! Scissors beats Paper.")
-    }
-    else if (playerSelection == "Paper" && computerSelection == "Paper") {
-      return ("Draw!")
+      }
     }
 
-    /* Player choses Scissors */
+    const computerSelection = computerPlay();
+    const playerSelection = playerPlay();
 
-    else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-    return ("You lose! Rock beats Scissors.")
-    }
-    else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-    return ("You win! Scissors beats Paper.")
-    }
-    else if (playerSelection == "Scissors" && computerSelection == "Scissors") {
-    return ("Draw!")
-    }
+
+    console.log(playRound(playerSelection, computerSelection));
+    console.log("Player = " + playerScore + ", Computer = " + computerScore);
+    console.log("Round " + round + " of 5");
+
+  /*  if (round == 5 && playerScore > computerScore) {
+      console.log ("You win "); */
+  /*  }
+    else if (round == 5 && playerScore < computerScore) {
+    console.log("Loser! The computer beat you.");
+  } */
   }
-
-  const computerSelection = computerPlay();
-  const playerSelection = playerPlay();
-
-  console.log(playRound(playerSelection, computerSelection));
-
 
   </script>
 </body>
