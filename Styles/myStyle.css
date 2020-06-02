@@ -1,0 +1,18 @@
+
+button {
+    font-size:large;
+    padding:30px;
+    margin:40px;
+    background-color: yellow;
+}
+
+#start {
+    background-color: turquoise;
+}
+
+#result {
+    background-color: thistle;
+    font-size: xx-large;
+    text-align: center;
+    
+}
